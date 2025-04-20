@@ -1,0 +1,224 @@
+:root {
+  --btn: #005F99;
+  --btn-hover: #FF6E5A;
+  --text-primary: #005F99;
+  --text-secondary: #333333;
+}
+
+/* full‑screen background & no scroll */
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.App {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: url('./station.png') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header as pill‑shaped card */
+.header {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 0.75rem 2rem;
+  width: 90%;
+  max-width: 960px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.header nav a {
+  margin-left: 1.5rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.header nav a:hover {
+  color: var(--btn-hover);
+}
+
+/* Main content centered */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
+
+/* Card wrapper around the form & status */
+.card {
+  background: rgba(255,255,255,0.95);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 2rem;
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto 2rem auto;
+  box-sizing: border-box;
+  text-align: center;
+  position: relative;
+  z-index: 5;
+}
+
+/* Title */
+.title {
+  margin: 0 0 1.5rem;
+  font-size: 3rem;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+/* Inline input + button */
+.pnr-form-inline {
+  display: flex;
+  background: #fff;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin: 0 auto;
+}
+
+.pnr-form-inline input {
+  flex: 1;
+  padding: 1rem;
+  border: none;
+  font-size: 1rem;
+  outline: none;
+  background: #fff;
+}
+
+.pnr-form-inline button {
+  background: var(--btn);
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.pnr-form-inline button:hover:not(:disabled) {
+  background: var(--btn-hover);
+}
+
+.pnr-form-inline button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* PNR status box */
+.status-box {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border: 1px solid var(--btn);
+  border-radius: 8px;
+  background: #fff;
+  text-align: left;
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.status-box.error {
+  border-color: var(--btn-hover);
+  color: var(--btn-hover);
+}
+
+.status-box p {
+  margin: 0.4rem 0;
+  font-size: 0.95rem;
+}
+
+/* Q&A boxes laid out horizontally */
+.qa-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.qa-box {
+  background: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 1rem;
+  text-align: left;
+  flex: 1 1 calc(25% - 1rem);
+  min-width: 220px;
+  box-sizing: border-box;
+}
+
+.qa-question {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.qa-answer {
+  color: var(--text-secondary);
+}
+
+/* Footer as pill‑shaped card */
+.footer {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 0.75rem 1.5rem;
+  width: 90%;
+  max-width: 960px;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .title { font-size: 2.5rem; }
+  .pnr-form-inline { width: 100%; }
+  .qa-box { flex: 1 1 45%; }
+}
+
+@media (max-width: 480px) {
+  .title { font-size: 2rem; }
+  .pnr-form-inline { flex-direction: column; }
+  .pnr-form-inline button { width: 100%; }
+  .qa-box { flex: 1 1 100%; }
+}
